@@ -1,26 +1,41 @@
 # project: cj5puufwbnf3a0160hczp6uot
-# version: 2
+# version: 5
 
 type Link implements Node {
-  url: String!
-  description: String!
-  createdAt: DateTime!
   id: ID! @isUnique
+  description: String!
+  url: String!
+  postedBy: User @relation(name: "UsersLinks")
+  votes: [Vote!]! @relation(name: "VotesOnLink")
+  createdAt: DateTime!
   updatedAt: DateTime!
 }
 
 type File implements Node {
-  contentType: String!
-  createdAt: DateTime!
   id: ID! @isUnique
+  contentType: String!
   name: String!
   secret: String! @isUnique
   size: Int!
-  updatedAt: DateTime!
   url: String! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type User implements Node {
+  id: ID! @isUnique
+  name: String!
+  email: String @isUnique
+  password: String
+  links: [Link!]! @relation(name: "UsersLinks")
+  votes: [Vote!]! @relation(name: "UsersVotes")
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Vote implements Node {
+  user: User! @relation(name: "UsersVotes")
+  link: Link! @relation(name: "VotesOnLink")
   createdAt: DateTime!
   id: ID! @isUnique
   updatedAt: DateTime!
