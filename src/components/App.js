@@ -5,7 +5,7 @@ import Search from './Search';
 import Login from './Login';
 import LinkList from './LinkList';
 import CreateLink from './CreateLink';
-import { ROOT, NEWEST_PAGE} from './../constants';
+import { ROOT, NEWEST_PAGE } from './../constants';
 
 const App = () =>
   (<div className="center w85">
