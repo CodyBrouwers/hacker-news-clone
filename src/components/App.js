@@ -11,7 +11,7 @@ const App = () =>
     <Header />
     <div className="ph3 pv1 background-gray">
       <Switch>
-        <Route exact path="/hacker-news-clone" render={() => <Redirect to="/newest/1" />} />
+        <Route exact path="/hacker-news-clone" render={() => <Redirect to="/hacker-news-clone/newest/1" />} />
         <Route exact path="/hacker-news-clone/login" component={Login} />
         <Route exact path="/hacker-news-clone/create" component={CreateLink} />
         <Route exact path="/hacker-news-clone/search" component={Search} />
