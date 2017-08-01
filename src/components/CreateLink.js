@@ -40,7 +40,7 @@ class CreateLink extends Component {
         });
       },
     });
-    this.props.history.push('/new/1');
+    this.props.history.push('/newest/1');
   };
 
   render() {

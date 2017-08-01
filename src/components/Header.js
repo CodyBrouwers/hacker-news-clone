@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { GC_USER_ID, GC_AUTH_TOKEN } from '../constants';
+import { GC_USER_ID, GC_AUTH_TOKEN, ROOT, SEARCH, CREATE, LOGIN } from '../constants';
 
 const Header = (props) => {
   const userId = localStorage.getItem(GC_USER_ID);
@@ -10,17 +10,17 @@ const Header = (props) => {
     <div className="flex pa1 justify-between nowrap orange">
       <div className="flex flex-fixed black">
         <div className="fw7 mr1">Hacker News</div>
-        <Link to="/" className="ml1 no-underline black">
+        <Link to={ROOT} className="ml1 no-underline black">
           new
         </Link>
         <div className="ml1">|</div>
-        <Link to="/search" className="ml1 no-underline black">
+        <Link to={SEARCH} className="ml1 no-underline black">
           search
         </Link>
         {userId &&
           <div className="flex">
             <div className="ml1">|</div>
-            <Link to="/create" className="ml1 no-underline black">
+            <Link to={CREATE} className="ml1 no-underline black">
               submit
             </Link>
           </div>}
@@ -34,12 +34,12 @@ const Header = (props) => {
             onClick={() => {
               localStorage.removeItem(GC_USER_ID);
               localStorage.removeItem(GC_AUTH_TOKEN);
-              props.history.push('/new/1');
+              props.history.push('/newest/1');
             }}
           >
               logout
           </div>
-          : <Link to="/login" className="ml1 no-underline black">
+          : <Link to={LOGIN} className="ml1 no-underline black">
               login
           </Link>}
       </div>
