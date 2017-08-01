@@ -152,32 +152,6 @@ class LinkList extends Component {
 
     return (
       <div>
-        {!userId
-          ? <button
-            onClick={() => {
-              this.props.history.push('/login');
-            }}
-          >
-              Login
-          </button>
-          : <div>
-            <button
-              onClick={() => {
-                this.props.history.push('/create');
-              }}
-            >
-                New Post
-            </button>
-            <button
-              onClick={() => {
-                localStorage.removeItem(GC_USER_ID);
-                localStorage.removeItem(GC_AUTH_TOKEN);
-                this.forceUpdate(); // doesn't work as it should :(
-              }}
-            >
-                Logout
-            </button>
-          </div>}
         <div>
           {linksToRender.map((link, index) =>
             (<Link
