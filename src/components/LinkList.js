@@ -2,7 +2,7 @@
 /* eslint no-use-before-define: 0 */
 import React, { Component } from 'react';
 import { graphql, gql } from 'react-apollo';
-import { GC_USER_ID, GC_AUTH_TOKEN, LINKS_PER_PAGE } from './../constants';
+import { LINKS_PER_PAGE, NEWEST_PAGE } from './../constants';
 import Link from './Link';
 
 class LinkList extends Component {
@@ -124,15 +124,15 @@ class LinkList extends Component {
     const page = parseInt(this.props.match.params.page, 10);
     if (page <= this.props.allLinksQuery._allLinksMeta.count / LINKS_PER_PAGE) {
       const nextPage = page + 1;
-      this.props.history.push(`/newest/${nextPage}`);
+      this.props.history.push(`${NEWEST_PAGE}/${nextPage}`);
     }
   };
 
   _previousPage = () => {
     const page = parseInt(this.props.match.params.page, 10);
     if (page > 1) {
-      const nextPage = page - 1;
-      this.props.history.push(`/newest/${nextPage}`);
+      const previousPage = page - 1;
+      this.props.history.push(`${NEWEST_PAGE}/${previousPage}`);
     }
   };
 
@@ -140,7 +140,6 @@ class LinkList extends Component {
     const allLinksQuery = this.props.allLinksQuery;
     const isNewestPage = this.props.location.pathname.includes('new');
     const linksToRender = this._getLinksToRender(isNewestPage);
-    const userId = localStorage.getItem(GC_USER_ID);
 
     if (allLinksQuery && allLinksQuery.loading) {
       return <div>Loading</div>;

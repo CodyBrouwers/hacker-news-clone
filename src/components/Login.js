@@ -1,7 +1,7 @@
 /* eslint no-undef: 0 */
 import React, { Component } from 'react';
 import { graphql, gql, compose } from 'react-apollo';
-import { GC_USER_ID, GC_AUTH_TOKEN } from '../constants';
+import { GC_USER_ID, GC_AUTH_TOKEN, ROOT } from '../constants';
 
 class Login extends Component {
   state = {
@@ -49,7 +49,7 @@ class Login extends Component {
   };
 
   _redirectToRoot = () => {
-    this.props.history.push('/');
+    this.props.history.push(ROOT);
   };
 
   _saveUserData = (id, token) => {

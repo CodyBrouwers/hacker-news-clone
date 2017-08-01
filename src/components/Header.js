@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { GC_USER_ID, GC_AUTH_TOKEN, ROOT, SEARCH, CREATE, LOGIN } from '../constants';
+import { GC_USER_ID, GC_AUTH_TOKEN, ROOT, SEARCH, CREATE, LOGIN, NEWEST_PAGE } from '../constants';
 
 const Header = (props) => {
   const userId = localStorage.getItem(GC_USER_ID);
@@ -34,7 +34,7 @@ const Header = (props) => {
             onClick={() => {
               localStorage.removeItem(GC_USER_ID);
               localStorage.removeItem(GC_AUTH_TOKEN);
-              props.history.push('/newest/1');
+              props.history.push(`${NEWEST_PAGE}/1`);
             }}
           >
               logout

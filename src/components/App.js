@@ -5,13 +5,18 @@ import Search from './Search';
 import Login from './Login';
 import LinkList from './LinkList';
 import CreateLink from './CreateLink';
+import { ROOT, NEWEST_PAGE} from './../constants';
 
 const App = () =>
   (<div className="center w85">
     <Header />
     <div className="ph3 pv1 background-gray">
       <Switch>
-        <Route exact path="/hacker-news-clone" render={() => <Redirect to="/hacker-news-clone/newest/1" />} />
+        <Route
+          exact
+          path={ROOT}
+          render={() => <Redirect to={`${NEWEST_PAGE}/1`} />}
+        />
         <Route exact path="/hacker-news-clone/login" component={Login} />
         <Route exact path="/hacker-news-clone/create" component={CreateLink} />
         <Route exact path="/hacker-news-clone/search" component={Search} />

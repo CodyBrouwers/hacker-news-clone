@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { graphql, gql } from 'react-apollo';
 import { ALL_LINKS_QUERY } from './LinkList';
-import { GC_USER_ID, LINKS_PER_PAGE } from '../constants';
+import { GC_USER_ID, LINKS_PER_PAGE, NEWEST_PAGE } from '../constants';
 
 class CreateLink extends Component {
   state = {
@@ -40,7 +40,7 @@ class CreateLink extends Component {
         });
       },
     });
-    this.props.history.push('/newest/1');
+    this.props.history.push(`${NEWEST_PAGE}/1`);
   };
 
   render() {
