@@ -11,12 +11,12 @@ const App = () =>
     <Header />
     <div className="ph3 pv1 background-gray">
       <Switch>
-        <Route exact path="/hacker-news-clone" render={() => <Redirect to="/new/1" />} />
+        <Route exact path="/hacker-news-clone" render={() => <Redirect to="/newest/1" />} />
         <Route exact path="/hacker-news-clone/login" component={Login} />
         <Route exact path="/hacker-news-clone/create" component={CreateLink} />
         <Route exact path="/hacker-news-clone/search" component={Search} />
         <Route exact path="/hacker-news-clone/top" component={LinkList} />
-        <Route exact path="/hacker-news-clone/new/:page" component={LinkList} />
+        <Route exact path="/hacker-news-clone/newest/:page" component={LinkList} />
 
         {/* <Route exact path="/" render={() => <Redirect to="/newest/1" />} />
         <Route exact path="/login" component={Login} />
